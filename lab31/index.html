@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Example</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Basic Grid Layout */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 100px);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: #6fa3ef;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    /* Alignment of Grid Items */
+    .aligned-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      justify-items: center;
+      gap: 10px;
+      padding: 20px;
+      height: 100vh;
+    }
+
+    .aligned-box {
+      background-color: #f4a261;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* Adaptive Website Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+      gap: 10px;
+      padding: 20px;
+      height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #2a9d8f;
+      padding: 20px;
+      color: white;
+    }
+
+    .content {
+      grid-area: content;
+      background-color: #f0f0f0;
+      padding: 20px;
+      color: #333;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Media Query for Responsiveness */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "content"
+          "sidebar"
+          "footer";
+      }
+
+      .sidebar {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Basic Grid Layout Example -->
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+  </div>
+
+  <!-- Grid Items Alignment Example -->
+  <div class="aligned-container">
+    <div class="aligned-box">Item 1</div>
+    <div class="aligned-box">Item 2</div>
+    <div class="aligned-box">Item 3</div>
+  </div>
+
+  <!-- Adaptive Website Layout with Header, Sidebar, Content, and Footer -->
+  <div class="layout">
+    <header>Header Section</header>
+    <div class="sidebar">Sidebar Section</div>
+    <div class="content">Main Content Section</div>
+    <footer>Footer Section</footer>
+  </div>
+
+</body>
+</html>
+
