@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling and Fonts in CSS</title>
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Lab 1: Basic Font Settings */
+        h1, p {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700; /* Bold */
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 400; /* Normal */
+        }
+
+        /* Lab 2: Text Alignment and Line Height */
+        .align-text {
+            text-align: center; /* Change this to left, right, or justify for different alignments */
+            line-height: 1.6; /* Adjust line height for readability */
+        }
+
+        /* Lab 3: Adding Text Shadows */
+        .shadow-text {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* x-offset, y-offset, blur-radius, color */
+        }
+
+        /* Lab 4: Using Google Fonts */
+        .google-font {
+            font-family: 'Roboto', sans-serif; /* Using Google Font 'Roboto' */
+            font-weight: 500;
+        }
+
+        /* Additional Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Text Styling & Fonts in CSS</h1>
+        <p>Welcome to the tutorial on text styling and fonts in CSS. Below, you'll find examples of different text styles and effects.</p>
+    </div>
+
+    <!-- Lab 1: Basic Font Settings -->
+    <div class="container">
+        <h2>Lab 1: Basic Font Settings</h2>
+        <h1>This is a Heading with Bold Font</h1>
+        <p>This is a paragraph with a normal font weight and size of 20px.</p>
+    </div>
+
+    <!-- Lab 2: Text Alignment and Line Height -->
+    <div class="container align-text">
+        <h2>Lab 2: Text Alignment and Line Height</h2>
+        <p>This paragraph is centered and has a line height of 1.6 for better readability. Try modifying text-align property (left, right, center, justify) and line-height values in the CSS.</p>
+    </div>
+
+    <!-- Lab 3: Adding Text Shadows -->
+    <div class="container">
+        <h2>Lab 3: Adding Text Shadows</h2>
+        <h1 class="shadow-text">This Heading has a Shadow Effect</h1>
+        <p>Notice how the shadow adds depth to the text. You can adjust the shadow values in the CSS.</p>
+    </div>
+
+    <!-- Lab 4: Using Google Fonts -->
+    <div class="container">
+        <h2>Lab 4: Using Google Fonts</h2>
+        <p class="google-font">This paragraph uses the 'Roboto' font from Google Fonts. It's easy to integrate and widely supported.</p>
+    </div>
+
+</body>
+</html>
