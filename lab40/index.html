@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation Labs</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lab 1: Changing Text Using document.getElementById and innerText -->
+  <h3>Lab 1: Changing Text Using document.getElementById and innerText</h3>
+  <p id="message">Initial Text</p>
+  <button onclick="changeText()">Change Text</button>
+
+  <br><br>
+
+  <!-- Lab 2: Using querySelector to Change Styles -->
+  <h3>Lab 2: Using querySelector to Change Styles</h3>
+  <div class="box"></div>
+  <button onclick="changeColor()">Change Color</button>
+
+  <br><br>
+
+  <!-- Lab 3: Changing HTML Content Using innerHTML -->
+  <h3>Lab 3: Changing HTML Content Using innerHTML</h3>
+  <div id="content">This is some text.</div>
+  <button onclick="changeHTML()">Change HTML</button>
+
+  <br><br>
+
+  <!-- Lab 4: Modifying Attributes Using setAttribute -->
+  <h3>Lab 4: Modifying Attributes Using setAttribute</h3>
+  <img id="image" src="https://via.placeholder.com/200" alt="Image 1" width="200">
+  <button onclick="changeImage()">Change Image</button>
+
+  <br><br>
+
+  <!-- Lab 5: Creating New Elements Using createElement and appendChild -->
+  <h3>Lab 5: Creating New Elements Using createElement and appendChild</h3>
+  <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <button onclick="addItem()">Add Item</button>
+
+  <script>
+    // Lab 1: Change Text
+    function changeText() {
+      document.getElementById("message").innerText = "Text Updated!";
+    }
+
+    // Lab 2: Change Color
+    function changeColor() {
+      document.querySelector(".box").style.backgroundColor = "blue";
+    }
+
+    // Lab 3: Change HTML
+    function changeHTML() {
+      document.getElementById("content").innerHTML = "<h2>New Heading</h2>";
+    }
+
+    // Lab 4: Change Image
+    function changeImage() {
+      document.getElementById("image").setAttribute("src", "https://via.placeholder.com/200/ff0000/ffffff");
+    }
+
+    // Lab 5: Add Item
+    function addItem() {
+      const newItem = document.createElement("li");
+      newItem.innerText = "New Item";
+      document.getElementById("list").appendChild(newItem);
+    }
+  </script>
+
+</body>
+</html>
