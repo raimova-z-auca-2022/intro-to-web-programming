@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to JavaScript</title>
+</head>
+<body>
+
+  <h1>Introduction to JavaScript</h1>
+
+  <!-- Lab 1: Enabling JavaScript & Console Logging -->
+  <section>
+    <h2>Lab 1: Enabling JavaScript & Console Logging</h2>
+    <button onclick="lab1()">Click to see console log and alert</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 2: Using Variables (let, const, var) -->
+  <section>
+    <h2>Lab 2: Using Variables (let, const, var)</h2>
+    <button onclick="lab2()">Click to see variable values</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 3: Working with Data Types -->
+  <section>
+    <h2>Lab 3: Working with Data Types</h2>
+    <button onclick="lab3()">Click to check data types</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 4: User Interaction with prompt() and alert() -->
+  <section>
+    <h2>Lab 4: User Interaction with prompt() and alert()</h2>
+    <button onclick="lab4()">Click to interact with user</button>
+  </section>
+
+  <script>
+    // Lab 1: Enabling JavaScript & Console Logging
+    function lab1() {
+      console.log("JavaScript is working!");
+      alert("Welcome to JavaScript!");
+    }
+
+    // Lab 2: Using Variables (let, const, var)
+    function lab2() {
+      var country = "USA";   // var can be reassigned
+      let city = "New York"; // let can be reassigned
+      const state = "NY";    // const cannot be reassigned
+
+      console.log("Initial values:");
+      console.log("Country: " + country);
+      console.log("City: " + city);
+      console.log("State: " + state);
+
+      // Reassigning var and let
+      country = "Canada"; // Reassigned
+      city = "Toronto";   // Reassigned
+
+      console.log("Reassigned values:");
+      console.log("Country: " + country);
+      console.log("City: " + city);
+
+      // Uncommenting the line below will throw an error because 'state' is a constant
+      // state = "ON"; // Error: Assignment to constant variable.
+
+      alert("Check your console for variable values.");
+    }
+
+    // Lab 3: Working with Data Types
+    function lab3() {
+      var name = "John"; // String
+      var age = 28;      // Number
+      var isStudent = true; // Boolean
+      var score = null;  // Null
+      var address;       // Undefined (no value assigned)
+
+      console.log("Name: " + name + " - Type: " + typeof name);
+      console.log("Age: " + age + " - Type: " + typeof age);
+      console.log("Is Student: " + isStudent + " - Type: " + typeof isStudent);
+      console.log("Score: " + score + " - Type: " + typeof score);
+      console.log("Address: " + address + " - Type: " + typeof address);
+
+      alert("Check your console for data types.");
+    }
+
+    // Lab 4: User Interaction with prompt() and alert()
+    function lab4() {
+      var userName = prompt("What is your name?");
+      var userAge = prompt("How old are you?");
+
+      alert("Hello, " + userName + "! You are " + userAge + " years old.");
+    }
+  </script>
+
+</body>
+</html>
+
