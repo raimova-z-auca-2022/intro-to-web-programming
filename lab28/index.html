@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display, Position, and z-index</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Display Property Examples */
+
+        .block {
+            display: block;
+            background-color: lightcoral;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        .inline {
+            display: inline;
+            background-color: lightblue;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .inline-block {
+            display: inline-block;
+            background-color: lightgreen;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .none {
+            display: none;
+            background-color: lightgrey;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        /* Position Property Examples */
+        .static {
+            position: static;
+            background-color: lightpink;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: lightyellow;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .absolute {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: lightgreen;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: lightgray;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* z-index Property Example */
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 100px;
+        }
+
+        .red-box {
+            background-color: red;
+            z-index: 1;
+        }
+
+        .blue-box {
+            background-color: blue;
+            z-index: 2;
+        }
+
+        .green-box {
+            background-color: green;
+            z-index: 3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>CSS Display, Position, and z-index</h1>
+
+    <!-- Display Property Examples -->
+    <h2>1. Display Property</h2>
+    <div class="block">This is a block element.</div>
+    <span class="inline">This is an inline element.</span>
+    <span class="inline">This is another inline element.</span>
+    <div class="inline-block">This is an inline-block element.</div>
+    <div class="none">This element will not be displayed.</div>
+
+    <h2>2. Position Property</h2>
+    <div class="static">This element is positioned statically (default).</div>
+    <div class="relative">This element is positioned relatively (moves 20px right and 20px down).</div>
+    <div class="absolute">This element is positioned absolutely (placed at the bottom-right of its parent).</div>
+    <div class="fixed">This element is fixed (stays at the top-right of the viewport).</div>
+    <div class="sticky">This element is sticky (stays at the top after scrolling).</div>
+
+    <h2>3. z-index Property</h2>
+    <div class="box red-box"></div>
+    <div class="box blue-box"></div>
+    <div class="box green-box"></div>
+
+</body>
+</html>
