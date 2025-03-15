@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transitions & Animations</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f7f7f7;
+      flex-direction: column;
+    }
+
+    /* Lab 1: Smooth Color Change Button (Transition) */
+    .color-change-button {
+      background-color: #3498db;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .color-change-button:hover {
+      background-color: #2ecc71;
+    }
+
+    /* Lab 2: Expanding Button on Hover (Transition) */
+    .expand-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .expand-button:hover {
+      transform: scale(1.2);
+    }
+
+    /* Lab 3: Fade-In Effect on Text (Transition) */
+    .fade-in-text {
+      font-size: 24px;
+      color: #333;
+      opacity: 0.5;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .fade-in-text:hover {
+      opacity: 1;
+    }
+
+    /* Lab 4: Bouncing Ball Animation (Keyframes) */
+    .bouncing-ball {
+      width: 50px;
+      height: 50px;
+      background-color: #9b59b6;
+      border-radius: 50%;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-30px);
+      }
+    }
+
+    /* Lab 5: Animated Loading Spinner (Keyframes) */
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Lab 6: Button Animation with Glowing Effect (Keyframes) */
+    .pulse-button {
+      background-color: #f39c12;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 10px rgba(243, 156, 18, 0.8);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(243, 156, 18, 1.5);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(243, 156, 18, 0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lab 1: Smooth Color Change Button -->
+  <button class="color-change-button">Hover to Change Color</button>
+
+  <br><br>
+
+  <!-- Lab 2: Expanding Button on Hover -->
+  <button class="expand-button">Hover to Expand</button>
+
+  <br><br>
+
+  <!-- Lab 3: Fade-In Effect on Text -->
+  <div class="fade-in-text">Hover over me to Fade In</div>
+
+  <br><br>
+
+  <!-- Lab 4: Bouncing Ball Animation -->
+  <div class="bouncing-ball"></div>
+
+  <br><br>
+
+  <!-- Lab 5: Animated Loading Spinner -->
+  <div class="loading-spinner"></div>
+
+  <br><br>
+
+  <!-- Lab 6: Button Animation with Glowing Effect -->
+  <button class="pulse-button">Pulsing Button</button>
+
+</body>
+</html>
