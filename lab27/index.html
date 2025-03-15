@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model & Spacing</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Box Model Example */
+        .box {
+            width: 200px;           /* Content width */
+            height: 100px;          /* Content height */
+            padding: 20px;          /* Space between content and border */
+            border: 5px solid black; /* Border around padding and content */
+            margin: 30px;           /* Space outside the box */
+            background-color: lightblue;
+        }
+
+        /* Lab 1: Understanding the Box Model */
+        .box-hidden {
+            width: 200px;
+            height: 100px;
+            overflow: hidden;       /* Content is clipped */
+            background-color: coral;
+            margin-bottom: 20px;
+        }
+
+        .box-scroll {
+            width: 200px;
+            height: 100px;
+            overflow: scroll;       /* Scrollbars are always shown */
+            background-color: lightblue;
+            margin-bottom: 20px;
+        }
+
+        .box-auto {
+            width: 200px;
+            height: 100px;
+            overflow: auto;         /* Scrollbars appear only if needed */
+            background-color: lightgreen;
+            margin-bottom: 20px;
+        }
+
+        /* Lab 2: Setting Width, Height, and Max-Width */
+        .container {
+            width: 80%;             /* 80% of the parent container's width */
+            max-width: 500px;       /* Prevent the box from becoming too wide */
+            height: 200px;
+            background-color: green;
+            margin-bottom: 20px;
+        }
+
+        /* Lab 3: Working with Overflow - Content Example */
+        .content {
+            height: 300px;           /* Content is taller than the box */
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>CSS Box Model & Spacing</h1>
+
+    <h2>1. Box Model Example</h2>
+    <div class="box"></div>
+
+    <h2>2. Lab 1: Understanding the Box Model - Overflow</h2>
+    <div class="box-hidden">
+        <div class="content">This content overflows and is hidden.</div>
+    </div>
+    <div class="box-scroll">
+        <div class="content">This content overflows and always shows a scrollbar.</div>
+    </div>
+    <div class="box-auto">
+        <div class="content">This content overflows and will show a scrollbar only if necessary.</div>
+    </div>
+
+    <h2>3. Lab 2: Setting Width, Height, and Max-Width</h2>
+    <div class="container"></div>
+
+    <h2>4. Explanation of the Overflow Settings</h2>
+    <p>
+        The overflow property controls how content behaves when it exceeds the specified box dimensions.
+        <ul>
+            <li><strong>hidden:</strong> Clips the content outside the box.</li>
+            <li><strong>scroll:</strong> Always shows a scrollbar.</li>
+            <li><strong>auto:</strong> Shows a scrollbar only when the content overflows.</li>
+        </ul>
+    </p>
+
+</body>
+</html>
+
