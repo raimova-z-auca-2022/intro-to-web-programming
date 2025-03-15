@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handling User Events Labs</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lab 1: Button Click Event (onclick) -->
+  <h3>Lab 1: Button Click Event (onclick)</h3>
+  <button onclick="changeText()">Click Me</button>
+  <p id="message">Initial message</p>
+
+  <br><br>
+
+  <!-- Lab 2: Mouse Hover Effect (onmouseover) -->
+  <h3>Lab 2: Mouse Hover Effect (onmouseover)</h3>
+  <div class="box" onmouseover="changeColor()" onmouseout="resetColor()"></div>
+
+  <br><br>
+
+  <!-- Lab 3: Key Press Detection (onkeydown) -->
+  <h3>Lab 3: Key Press Detection (onkeydown)</h3>
+  <input type="text" id="inputField" onkeydown="showKey(event)" placeholder="Press any key">
+  <p id="keyOutput">Last pressed key will be shown here</p>
+
+  <br><br>
+
+  <!-- Lab 4: Adding Multiple Events with addEventListener -->
+  <h3>Lab 4: Adding Multiple Events with addEventListener</h3>
+  <button id="eventButton">Click or Hover</button>
+
+  <br><br>
+
+  <!-- Lab 5: Preventing Default Form Submission (event.preventDefault) -->
+  <h3>Lab 5: Preventing Default Form Submission (event.preventDefault)</h3>
+  <form id="myForm">
+    <input type="text" id="formInput" required>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="formMessage"></p>
+
+  <script>
+    // Lab 1: Button Click Event (onclick)
+    function changeText() {
+      document.getElementById("message").innerText = "Button Clicked!";
+    }
+
+    // Lab 2: Mouse Hover Effect (onmouseover)
+    function changeColor() {
+      document.querySelector(".box").style.backgroundColor = "blue";
+    }
+
+    function resetColor() {
+      document.querySelector(".box").style.backgroundColor = "lightgray";
+    }
+
+    // Lab 3: Key Press Detection (onkeydown)
+    function showKey(event) {
+      document.getElementById("keyOutput").innerText = `Last pressed key: ${event.key}`;
+    }
+
+    // Lab 4: Adding Multiple Events with addEventListener
+    const eventButton = document.getElementById("eventButton");
+
+    eventButton.addEventListener("click", function() {
+      eventButton.style.backgroundColor = "green";
+    });
+
+    eventButton.addEventListener("mouseover", function() {
+      eventButton.style.backgroundColor = "yellow";
+    });
+
+    eventButton.addEventListener("mouseout", function() {
+      eventButton.style.backgroundColor = "";
+    });
+
+    // Lab 5: Preventing Default Form Submission (event.preventDefault)
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("formMessage").innerText = "Form submission prevented!";
+    });
+  </script>
+
+</body>
+</html>
