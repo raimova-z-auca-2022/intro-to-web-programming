@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Operators & Control Structures</title>
+</head>
+<body>
+
+  <h1>JavaScript Operators & Control Structures</h1>
+
+  <!-- Lab 1: Arithmetic Operators -->
+  <section>
+    <h2>Lab 1: Arithmetic Operators</h2>
+    <button onclick="lab1()">Click to perform arithmetic operations</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 2: Logical Operators -->
+  <section>
+    <h2>Lab 2: Logical Operators</h2>
+    <button onclick="lab2()">Click to check voting eligibility</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 3: Comparative Operators -->
+  <section>
+    <h2>Lab 3: Comparative Operators</h2>
+    <button onclick="lab3()">Click to compare two numbers</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 4: if-else Statement -->
+  <section>
+    <h2>Lab 4: if-else Statement</h2>
+    <button onclick="lab4()">Click to check if the number is positive, negative, or zero</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 5: switch Statement -->
+  <section>
+    <h2>Lab 5: switch Statement</h2>
+    <button onclick="lab5()">Click to check the day of the week</button>
+  </section>
+
+  <br><br>
+
+  <!-- Lab 6: Ternary Operator -->
+  <section>
+    <h2>Lab 6: Ternary Operator</h2>
+    <button onclick="lab6()">Click to check if the number is even or odd</button>
+  </section>
+
+  <script>
+    // Lab 1: Arithmetic Operators
+    function lab1() {
+      let num1 = 10;
+      let num2 = 5;
+
+      console.log("Addition: " + (num1 + num2));
+      console.log("Subtraction: " + (num1 - num2));
+      console.log("Multiplication: " + (num1 * num2));
+      console.log("Division: " + (num1 / num2));
+      console.log("Modulus: " + (num1 % num2));
+      console.log("Exponentiation: " + (num1 ** num2));
+
+      alert("Check your console for the results of arithmetic operations.");
+    }
+
+    // Lab 2: Logical Operators
+    function lab2() {
+      let age = 20;
+      let isRegistered = true;
+
+      let canVote = (age >= 18 && isRegistered);
+
+      if (canVote) {
+        console.log("The user is eligible to vote.");
+      } else {
+        console.log("The user is not eligible to vote.");
+      }
+
+      alert("Check your console to see if the user is eligible to vote.");
+    }
+
+    // Lab 3: Comparative Operators
+    function lab3() {
+      let num1 = 10;
+      let num2 = 5;
+
+      if (num1 > num2) {
+        console.log("num1 is greater than num2");
+      } else if (num1 < num2) {
+        console.log("num1 is less than num2");
+      } else {
+        console.log("num1 is equal to num2");
+      }
+
+      alert("Check your console to see the result of comparing two numbers.");
+    }
+
+    // Lab 4: if-else Statement
+    function lab4() {
+      let number = -5;
+
+      if (number > 0) {
+        console.log("The number is positive.");
+      } else if (number < 0) {
+        console.log("The number is negative.");
+      } else {
+        console.log("The number is zero.");
+      }
+
+      alert("Check your console to see if the number is positive, negative, or zero.");
+    }
+
+    // Lab 5: switch Statement
+    function lab5() {
+      let day = "Wednesday";
+
+      switch (day) {
+        case "Monday":
+          console.log("Start of the workweek.");
+          break;
+        case "Tuesday":
+          console.log("Second day of the workweek.");
+          break;
+        case "Wednesday":
+          console.log("Midweek.");
+          break;
+        case "Thursday":
+          console.log("Almost there.");
+          break;
+        case "Friday":
+          console.log("Last day of the workweek.");
+          break;
+        case "Saturday":
+          console.log("Weekend!");
+          break;
+        case "Sunday":
+          console.log("Weekend!");
+          break;
+        default:
+          console.log("Invalid day.");
+      }
+
+      alert("Check your console to see the message for the selected day.");
+    }
+
+    // Lab 6: Ternary Operator
+    function lab6() {
+      let number = 4;
+
+      let result = (number % 2 === 0) ? "The number is even." : "The number is odd.";
+
+      console.log(result);
+
+      alert("Check your console to see if the number is even or odd.");
+    }
+  </script>
+
+</body>
+</html>
+
