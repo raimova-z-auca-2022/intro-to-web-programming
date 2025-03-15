@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Manipulation with JavaScript</title>
+  <style>
+    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Highlight class */
+    .highlight {
+      color: white;
+      font-weight: bold;
+      border: 2px solid red;
+    }
+
+    /* Fade out class */
+    .fade {
+      opacity: 0;
+      transition: opacity 2s;
+    }
+
+    /* Moving box */
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+      position: absolute;
+    }
+
+    /* Blinking text class */
+    .blinking {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { color: red; }
+      50% { color: blue; }
+      100% { color: red; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lab 1: Changing Styles via style Property -->
+  <h3>Lab 1: Changing Styles via style Property</h3>
+  <p id="para1">This is a paragraph. Click the button to change its style.</p>
+  <button onclick="changeStyles()">Change Styles</button>
+
+  <br><br>
+
+  <!-- Lab 2: Adding/Removing Classes -->
+  <h3>Lab 2: Adding/Removing Classes</h3>
+  <p id="para2">This is another paragraph. Click the button to toggle its style.</p>
+  <button onclick="toggleClass()">Toggle Highlight</button>
+
+  <br><br>
+
+  <!-- Lab 3: Animation with setTimeout (Fade Effect) -->
+  <h3>Lab 3: Animation with setTimeout (Fade Effect)</h3>
+  <p id="para3">This paragraph will fade out slowly when the button is clicked.</p>
+  <button onclick="fadeOut()">Fade Out</button>
+
+  <br><br>
+
+  <!-- Lab 4: Animation with setInterval (Moving Box) -->
+  <h3>Lab 4: Animation with setInterval (Moving Box)</h3>
+  <div id="box" class="box"></div>
+  <button onclick="moveBox()">Move Box</button>
+
+  <br><br>
+
+  <!-- Lab 5: Blinking Text Using setInterval -->
+  <h3>Lab 5: Blinking Text Using setInterval</h3>
+  <p id="para4">This text will blink every second.</p>
+
+  <script>
+    // Lab 1: Changing Styles via style Property
+    function changeStyles() {
+      const paragraph = document.getElementById("para1");
+      paragraph.style.color = "white";
+      paragraph.style.backgroundColor = "black";
+      paragraph.style.fontSize = "24px";
+    }
+
+    // Lab 2: Adding/Removing Classes (classList.add, classList.remove)
+    function toggleClass() {
+      const paragraph = document.getElementById("para2");
+      paragraph.classList.toggle("highlight");
+    }
+
+    // Lab 3: Animation with setTimeout (Fade Effect)
+    function fadeOut() {
+      const paragraph = document.getElementById("para3");
+      setTimeout(() => {
+        paragraph.classList.add("fade");
+      }, 500); // Adding fade effect after 0.5 seconds
+    }
+
+    // Lab 4: Animation with setInterval (Moving Box)
+    let boxPosition = 0;
+    let intervalId;
+
+    function moveBox() {
+      const box = document.getElementById("box");
+      intervalId = setInterval(() => {
+        if (boxPosition < 300) {
+          boxPosition += 5;
+          box.style.left = boxPosition + "px";
+        } else {
+          clearInterval(intervalId); // Stop the animation when it reaches 300px
+        }
+      }, 50);
+    }
+
+    // Lab 5: Blinking Text Using setInterval
+    setInterval(() => {
+      const para4 = document.getElementById("para4");
+      para4.classList.toggle("blinking");
+    }, 1000); // Toggle blinking every second
+
+  </script>
+
+</body>
+</html>
