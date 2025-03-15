@@ -1,0 +1,12 @@
+p {
+  color: green;
+}
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+#header {
+  color: blue;
+  text-align: center;
+}
+
