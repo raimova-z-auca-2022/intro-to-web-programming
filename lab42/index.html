@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms & User Input Validation</title>
+  <style>
+    form {
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 300px;
+    }
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lab 1: Getting Data from the Form (value) -->
+  <h3>Lab 1: Getting Data from the Form (value)</h3>
+  <input type="text" id="username" placeholder="Enter your username">
+  <button onclick="getData()">Submit</button>
+  <div id="usernameResult" class="result"></div>
+
+  <br><br>
+
+  <!-- Lab 2: Checking Empty Fields in a Form -->
+  <h3>Lab 2: Checking Empty Fields in a Form</h3>
+  <form id="emptyForm">
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="emptyFieldAlert" class="result"></div>
+
+  <br><br>
+
+  <!-- Lab 3: Validating Email Format -->
+  <h3>Lab 3: Validating Email Format</h3>
+  <form id="emailForm">
+    <input type="email" id="emailInput" placeholder="Enter a valid email" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="emailAlert" class="result"></div>
+
+  <br><br>
+
+  <!-- Lab 4: Number Validation in Form -->
+  <h3>Lab 4: Number Validation in Form</h3>
+  <form id="numberForm">
+    <input type="text" id="ageInput" placeholder="Enter your age (number)" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="numberAlert" class="result"></div>
+
+  <br><br>
+
+  <!-- Lab 5: Form Submission with Validation -->
+  <h3>Lab 5: Form Submission with Validation</h3>
+  <form id="finalForm">
+    <input type="text" id="finalName" placeholder="Enter your name" required>
+    <input type="email" id="finalEmail" placeholder="Enter your email" required>
+    <input type="text" id="finalAge" placeholder="Enter your age (number)" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="finalResult" class="result"></div>
+
+  <script>
+    // Lab 1: Getting Data from the Form (value)
+    function getData() {
+      const username = document.getElementById("username").value;
+      document.getElementById("usernameResult").innerText = `Entered username: ${username}`;
+    }
+
+    // Lab 2: Checking Empty Fields in a Form
+    document.getElementById("emptyForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      if (name === "" || email === "") {
+        document.getElementById("emptyFieldAlert").innerText = "All fields are required!";
+      } else {
+        document.getElementById("emptyFieldAlert").innerText = "Form submitted successfully!";
+      }
+    });
+
+    // Lab 3: Validating Email Format
+    document.getElementById("emailForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById("emailInput").value;
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!emailPattern.test(emailInput)) {
+        document.getElementById("emailAlert").innerText = "Please enter a valid email address.";
+      } else {
+        document.getElementById("emailAlert").innerText = "Email is valid.";
+      }
+    });
+
+    // Lab 4: Number Validation in Form
+    document.getElementById("numberForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const ageInput = document.getElementById("ageInput").value;
+
+      if (isNaN(ageInput)) {
+        document.getElementById("numberAlert").innerText = "Please enter a valid number for age.";
+      } else {
+        document.getElementById("numberAlert").innerText = "Age is valid.";
+      }
+    });
+
+    // Lab 5: Form Submission with Validation
+    document.getElementById("finalForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const finalName = document.getElementById("finalName").value;
+      const finalEmail = document.getElementById("finalEmail").value;
+      const finalAge = document.getElementById("finalAge").value;
+
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (finalName === "" || finalEmail === "" || finalAge === "") {
+        document.getElementById("finalResult").innerText = "All fields are required!";
+      } else if (!emailPattern.test(finalEmail)) {
+        document.getElementById("finalResult").innerText = "Please enter a valid email address.";
+      } else if (isNaN(finalAge)) {
+        document.getElementById("finalResult").innerText = "Age must be a number.";
+      } else {
+        document.getElementById("finalResult").innerText = "Form submitted successfully!";
+      }
+    });
+  </script>
+
+</body>
+</html>
