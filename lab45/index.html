@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Labs (All in One)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    nav button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    nav button:hover {
+      background-color: #0056b3;
+    }
+    section {
+      display: none;
+      margin-top: 20px;
+    }
+    .active {
+      display: block;
+    }
+    .card, .imgCard {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      background: #f9f9f9;
+      max-width: 400px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .imgCard img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>API Labs (HTML/CSS/JS)</h1>
+
+<nav>
+  <button onclick="showLab('lab1')">Lab 1: Users</button>
+  <button onclick="showLab('lab2')">Lab 2: Posts</button>
+  <button onclick="showLab('lab3')">Lab 3: Joke</button>
+  <button onclick="showLab('lab4')">Lab 4: Search Users</button>
+  <button onclick="showLab('lab5')">Lab 5: Images</button>
+</nav>
+
+<!-- Lab 1 -->
+<section id="lab1">
+  <h2>Lab 1: Fetch Users</h2>
+  <ul id="userList"></ul>
+</section>
+
+<!-- Lab 2 -->
+<section id="lab2">
+  <h2>Lab 2: Fetch Posts</h2>
+  <div id="postContainer"></div>
+</section>
+
+<!-- Lab 3 -->
+<section id="lab3">
+  <h2>Lab 3: Random Joke</h2>
+  <button onclick="getJoke()">Get Joke</button>
+  <p id="jokeText"></p>
+</section>
+
+<!-- Lab 4 -->
+<section id="lab4">
+  <h2>Lab 4: Search Users</h2>
+  <input type="text" id="searchInput" placeholder="Search by name" />
+  <ul id="searchResults"></ul>
+</section>
+
+<!-- Lab 5 -->
+<section id="lab5">
+  <h2>Lab 5: Image Gallery</h2>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<script>
+  // Show/Hide labs
+  function showLab(id) {
+    document.querySelectorAll("section").forEach(section => {
+      section.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+  }
+
+  // Lab 1
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(users => {
+      const list = document.getElementById("userList");
+      users.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = `${user.name} - ${user.email}`;
+        list.appendChild(li);
+      });
+      // Also store for Lab 4
+      allUsers = users;
+      displayUsers(users);
+    });
+
+  // Lab 2
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => res.json())
+    .then(posts => {
+      const container = document.getElementById("postContainer");
+      posts.slice(0, 5).forEach(post => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<h4>${post.title}</h4><p>${post.body}</p>`;
+        container.appendChild(div);
+      });
+    });
+
+  // Lab 3
+  function getJoke() {
+    fetch("https://official-joke-api.appspot.com/random_joke")
+      .then(res => res.json())
+      .then(joke => {
+        document.getElementById("jokeText").textContent =
+          `${joke.setup} — ${joke.punchline}`;
+      });
+  }
+
+  // Lab 4
+  let allUsers = [];
+  document.getElementById("searchInput").addEventListener("input", function () {
+    const keyword = this.value.toLowerCase();
+    const filtered = allUsers.filter(user =>
+      user.name.toLowerCase().includes(keyword)
+    );
+    displayUsers(filtered);
+  });
+
+  function displayUsers(users) {
+    const list = document.getElementById("searchResults");
+    list.innerHTML = "";
+    users.forEach(user => {
+      const li = document.createElement("li");
+      li.textContent = `${user.name} - ${user.email}`;
+      list.appendChild(li);
+    });
+  }
+
+  // Lab 5
+  fetch("https://jsonplaceholder.typicode.com/photos?_limit=5")
+    .then(res => res.json())
+    .then(images => {
+      const gallery = document.getElementById("gallery");
+      images.forEach(img => {
+        const div = document.createElement("div");
+        div.className = "imgCard";
+        div.innerHTML = `<img src="${img.url}" alt="img"/><p>${img.title}</p>`;
+        gallery.appendChild(div);
+      });
+    });
+
+  // Load Lab 1 by default
+  showLab('lab1');
+</script>
+
+</body>
+</html>
